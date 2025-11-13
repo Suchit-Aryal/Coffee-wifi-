@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!--Don't forget your import here-->
+{% from 'bootstrap5/form.html' import render_form%}
+
+{% block title %}Add A New Cafe{% endblock %}
+{% block styles %}
+    <!-- Load Bootstrap-Flask CSS here -->
+      {{ bootstrap.load_css() }}
+
+    <!-- Link to the styles.css here to apply styling to all the child templates.-->
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a new cafe into the database</h1>
+      <!-- This is where your WTForm will go -->
+	  <p class="space-above"><a href="{{url_for('cafes')}}">See all cafes</a></p>
+        {{render_form(form)}}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
